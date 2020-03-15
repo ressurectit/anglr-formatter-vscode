@@ -1,49 +1,65 @@
 {
-	"name": "anglr-formatter-vscode",
-	"displayName": "Anglr formatter for VSCode",
-	"description": "Wrapper for anglr-formatter for Visual Studio Code extension",
-	"publisher": "ressurectit",
-	"version": "0.1.0",
-	"engines": {
-		"vscode": "^1.43.0"
-	},
-	"categories": [
-		"Formatters"
-	],
-	"activationEvents": [
-		"onLanguage:typescript"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"configuration": {
-			"title": "TypeScript",
-			"properties": {
-				"anglr.format.enable": {
-					"type": "boolean",
-					"default": true,
-					"description": "Enable/disalbe Anglr formatter."
-				},
-				"anglr.importReorder.enable": {
-					"type": "boolean",
-					"default": true,
-					"description": "Enable/disalbe automatic Anglr formatter import reordering."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./"
-	},
-	"dependencies": {
-		"anglr-formatter": "*"
-	},
-	"devDependencies": {
-		"@types/node": "13.9.1",
-		"@types/vscode": "1.43.0",
-		"@types/glob": "7.1.1",
-		"typescript": "3.8.3",
-		"vscode-test": "1.3.0"
-	}
+    "name": "anglr-formatter-vscode",
+    "displayName": "Anglr formatter for VSCode",
+    "description": "Wrapper for anglr-formatter for Visual Studio Code extension",
+    "publisher": "ressurectit",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "activationEvents": [
+        "onLanguage:typescript"
+    ],
+    "main": "./out/extension.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ressurectit/anglr-formatter-vscode.git"
+    },
+    "keywords": [
+        "angular",
+        "formatter",
+        "typescript",
+        "vscode"
+    ],
+    "author": "kukjevov",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ressurectit/anglr-formatter-vscode/issues"
+    },
+    "homepage": "https://github.com/ressurectit/anglr-formatter-vscode",
+    "contributes": {
+        "configuration": {
+            "title": "TypeScript",
+            "properties": {
+                "anglr.format.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disalbe Anglr formatter."
+                },
+                "anglr.importReorder.enable": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disalbe automatic Anglr formatter import reordering."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "dependencies": {
+        "anglr-formatter": "*"
+    },
+    "devDependencies": {
+        "@types/node": "13.9.1",
+        "@types/vscode": "1.43.0",
+        "@types/glob": "7.1.1",
+        "typescript": "3.8.3",
+        "vscode-test": "1.3.0"
+    }
 }
