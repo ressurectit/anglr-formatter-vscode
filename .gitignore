@@ -1,0 +1,10 @@
+node_modules/
+dist/
+out/
+
+package-lock.json
+*.js
+*.log
+*.bak
+*.orig
+*~
