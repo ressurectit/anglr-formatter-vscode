@@ -1,24 +1,33 @@
+import {workspace, ExtensionContext, TextDocument, TextEdit, languages, Range} from 'vscode';
 import {AnglrFormatter} from 'anglr-formatter';
-import * as vscode from 'vscode';
 
-export function activate(context: vscode.ExtensionContext) 
+import {getAnglrFormatter} from './utils';
+
+export function activate(context: ExtensionContext) 
 {
-	let config = vscode.workspace.getConfiguration('anglr');
+	let config = workspace.getConfiguration('anglr');
 
 	if(config.get('format.enable'))
 	{
-		vscode.languages.registerDocumentFormattingEditProvider('typescript', 
+		languages.registerDocumentFormattingEditProvider('typescript', 
 		{
-			provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] 
+			provideDocumentFormattingEdits: async (document: TextDocument) => 
 			{
+				//HACK - until i will know how to unregister formatter
 				if(!config.get('format.enable'))
 				{
 					return [];
 				}
 
-				let formatter = new AnglrFormatter(null,
+				let anglrFormatter = config.get('localVersion.enable') ? (await getAnglrFormatter()) : AnglrFormatter;
+
+				let formatter = new anglrFormatter(null,
 				{
-					reoderImports: config.get('importReorder.enable')
+					reoderImports: config.get('importReorder.enable'),
+					callExpressionArgumentsFormatter: config.get('callExpressionArgumentsFormatter.enable'),
+					constructorParameterFormatter: config.get('constructorParameterFormatter.enable'),
+					decoratorArgumentsFormatter: config.get('decoratorArgumentsFormatter.enable'),
+					importFormatter: config.get('importFormatter.enable')
 				});
 
 				let changedSource = formatter.formatFileContent(document.getText());
@@ -31,7 +40,7 @@ export function activate(context: vscode.ExtensionContext)
 				let endPosition = document.lineAt(document.lineCount - 1).rangeIncludingLineBreak.end
 				let startPosition = document.lineAt(0).rangeIncludingLineBreak.start;
 
-				return [vscode.TextEdit.replace(new vscode.Range(startPosition, endPosition), changedSource)];
+				return [TextEdit.replace(new Range(startPosition, endPosition), changedSource)];
 			}
 		});
 	}
