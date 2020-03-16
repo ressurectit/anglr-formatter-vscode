@@ -15,6 +15,7 @@ No special requirements
 This extension contributes the following settings:
 
 - `anglr.format.enable`: Enable/disalbe Anglr formatter.
+- `anglr.typescriptFormat.enable`: Enable/disalbe Typescript formatter which runs on whole file before custom formatters.
 - `anglr.importReorder.enable`: Enable/disalbe automatic Anglr formatter import reordering.
 - `anglr.callExpressionArgumentsFormatter.enable`: Enable/disalbe automatic Anglr call expression arguments formatter.
 - `anglr.constructorParameterFormatter.enable`: Enable/disalbe automatic Anglr constructor formatter.
@@ -27,6 +28,12 @@ This extension contributes the following settings:
 First experimental vscode extension
 
 ## Release Notes
+
+### 0.2.2
+
+- added support for disabling typescript formatter
+- *formatter* configuration
+    - `anglr.typescriptFormat.enable` - Enable/disalbe Typescript formatter which runs on whole file before custom formatters.
 
 ### 0.2.1
 

@@ -30,7 +30,7 @@ export function activate(context: ExtensionContext)
 					importFormatter: config.get('importFormatter.enable')
 				});
 
-				let changedSource = formatter.formatFileContent(document.getText());
+				let changedSource = formatter.formatFileContent(document.getText(), !config.get('typescriptFormat.enable'));
 
 				if(!changedSource)
 				{

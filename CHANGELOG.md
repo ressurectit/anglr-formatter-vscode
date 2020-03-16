@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.2.2
+
+- added support for disabling typescript formatter
+- *formatter* configuration
+    - `anglr.typescriptFormat.enable` - Enable/disalbe Typescript formatter which runs on whole file before custom formatters.
+
 ## Version 0.2.1
 
 - updated version of `anglr-formatter` (fixed imports reordering)
