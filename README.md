@@ -29,6 +29,10 @@ First experimental vscode extension
 
 ## Release Notes
 
+### 0.2.3
+
+- now change of settings works also without reload of vscode
+
 ### 0.2.2
 
 - added support for disabling typescript formatter

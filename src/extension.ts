@@ -5,14 +5,14 @@ import {getAnglrFormatter} from './utils';
 
 export function activate(context: ExtensionContext) 
 {
-	let config = workspace.getConfiguration('anglr');
-
-	if(config.get('format.enable'))
+	if(workspace.getConfiguration('anglr').get('format.enable'))
 	{
 		languages.registerDocumentFormattingEditProvider('typescript', 
 		{
 			provideDocumentFormattingEdits: async (document: TextDocument) => 
 			{
+				let config = workspace.getConfiguration('anglr');
+
 				//HACK - until i will know how to unregister formatter
 				if(!config.get('format.enable'))
 				{
