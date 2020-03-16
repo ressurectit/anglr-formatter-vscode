@@ -3,7 +3,7 @@
     "displayName": "Anglr formatter",
     "description": "Wrapper for anglr-formatter for Visual Studio Code extension",
     "publisher": "ressurectit",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "engines": {
         "vscode": "^1.43.0"
     },

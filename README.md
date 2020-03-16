@@ -28,6 +28,10 @@ First experimental vscode extension
 
 ## Release Notes
 
+### 0.2.1
+
+- updated version of `anglr-formatter` (fixed imports reordering)
+
 ### 0.2.0
 
 - updated version of `anglr-formatter`

@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.2.1
+
+- updated version of `anglr-formatter` (fixed imports reordering)
+
 ## Version 0.2.0
 
 - updated version of `anglr-formatter`
